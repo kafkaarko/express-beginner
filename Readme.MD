@@ -6,6 +6,14 @@
 
 ---
 
+## 📘 API Documentation (Postman)
+
+Dokumentasi lengkap API bisa dilihat di Postman Documenter:
+
+👉 https://documenter.getpostman.com/view/39313336/2sBXVo8nT8
+
+---
+
 ## 📦 Fitur
 
 ✨ Fitur utama yang tersedia di proyek ini:
@@ -23,33 +31,21 @@
 
 Stack yang digunakan:
 
-| Teknologi | Kegunaan |
-|-----------|-----------|
-| Node.js | Runtime JavaScript |
-| Express.js | REST API framework |
-| MongoDB + Mongoose | Database |
-| Multer | Upload gambar |
-| dotenv | Konfigurasi environment |
+| Teknologi         | Kegunaan              |
+|------------------|----------------------|
+| Node.js          | Runtime JavaScript   |
+| Express.js       | REST API framework   |
+| MongoDB + Mongoose | Database           |
+| Multer           | Upload gambar        |
+| dotenv           | Konfigurasi env      |
 | Cors + cookie-parser | Middleware HTTP |
 
 ---
 
 ## 🚀 Cara Instal & Run
 
-### 1. Clone repo
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/kafkaarko/express-beginner.git
 cd express-beginner/backend
-
----
-
-
-
----
-
-## 📘 API Documentation (Postman)
-
-Dokumentasi lengkap API bisa dilihat di Postman Documenter:
-
-👉 https://documenter.getpostman.com/view/39313336/2sBXVo8nT8
