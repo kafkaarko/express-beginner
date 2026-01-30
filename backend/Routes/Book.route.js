@@ -6,8 +6,8 @@ const verifyToken = require('../Middewares/Verif.middleeware');
 const router = express.Router();
 
 router.get('/', getAllBooks);
-router.get('/:id', getBookById);
 router.get('/category/:id', getBookByCategory);
+router.get('/:id', getBookById);
 router.use(verifyToken);
 // router.use(roleMiddleware(['admin_perpon']));
 router.post('/',upload.single('gambar'), createBook);

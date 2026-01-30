@@ -3,17 +3,25 @@ const user = require('../Model/User.Model');
 const book = require('../Model/Book.model');
 const { errorResponse, successResponse } = require('../Utils/response.utils');
 const PinjamanModel = require('../Model/Pinjaman.model');
+const mongoose = require('mongoose')
 
 const borrowBook = async (req, res) =>{
     const {userId, bookId, } = req.body;
 
     try {
+        if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(bookId)) {
+        return errorResponse(res, "Invalid userId or BookId format, please retry");
+        }
         const userBorrow = await user.findById({_id:userId});
         const bookBorrow = await book.findById({_id:bookId});
 
         if(!userBorrow || !bookBorrow) return errorResponse(res, "User or Book not found, please retry");
 
-        if(bookBorrow.stok < 1) return errorResponse(res, "Book is out of stock, please choose another book");
+        if(bookBorrow.stok < 1){
+        console.warn(errorResponse(res, "Book is out of stock, please choose another book"));
+        }  
+        bookBorrow.stok -= 1;
+            
         const mulai_minjam = new Date();
         const batas_minjam = new Date();
         batas_minjam.setDate(mulai_minjam.getDate() + 14) //default kembali 14 hari
@@ -26,7 +34,6 @@ const borrowBook = async (req, res) =>{
             batas_minjam,
         })
 
-        bookBorrow.stok -= 1;
         await bookBorrow.save();
 
         return successResponse(res, "Successfully to borrow book", pinjaman)
